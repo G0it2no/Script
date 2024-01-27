@@ -29,26 +29,6 @@ for i,v in pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren()) d
 	end	  
 })
 
-Tab:AddButton({
-	Name = "Multi gear",
-	Callback = function()
-      		lp = game:GetService("Players").LocalPlayer
-
-game:GetService("UserInputService").InputBegan:Connect(function(key)
-	if key.KeyCode == Enum.KeyCode.E then
-		for i,tool in pairs(lp.Backpack:GetChildren()) do
-			if tool:IsA("Tool") then
-				tool.Parent = lp.Character
-				tool:Activate()
-				task.wait()
-				tool.Parent = lp.Backpack
-			end
-		end
-	end
-end)
-  	end    
-})
-
 local Tab = Window:MakeTab({
 	Name = "Misc",
 	Icon = "rbxassetid://4483345998",
@@ -56,9 +36,16 @@ local Tab = Window:MakeTab({
 })
 
 Tab:AddButton({
-	Name = "Crash server",
+	Name = "Remote Spy M",
 	Callback = function()
-      		loadstring(game:HttpGet("https://raw.githubusercontent.com/AnonTheEgg/rutv2nh4586tyun2v498v5uc9v2g84vun5/main/kksjednfkjqebfjkabsdjhfbqwef",true))()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/REBzHUB/RS/main/SimpleSpyMobile"))()
+  	end    
+})
+
+Tab:AddButton({
+	Name = "Infnite Yield",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
   	end    
 })
 
