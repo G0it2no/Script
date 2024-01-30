@@ -1,9 +1,9 @@
 local gui = Instance.new("ScreenGui")
-gui.Name = "patrickGui"
+gui.Name = "Toggle"
 gui.Parent = game.CoreGui
 
 local TextButton = Instance.new("TextButton")
-TextButton.Text = "Toggle"
+TextButton.Text = "Toggle ui"
 TextButton.TextSize = 24
 TextButton.TextColor3 = Color3.new(1, 1, 1) --color txt
 TextButton.BackgroundColor3 = Color3.new(0, 1, 1) --color bg
@@ -13,7 +13,7 @@ TextButton.Font = Enum.Font.Code --txt code
 TextButton.Size = UDim2.new(0.2, 0, 0.1, 0) --size
 TextButton.Position = UDim2.new(0, 0, 0.4, 0) --pos
 TextButton.MouseButton1Click:Connect(function() --function
-L:ToggleUI()
+L:ToggleUI() --change L [exam: If Name Local Is Library Change To Library:ToggleUI()
 end)
 TextButton.Parent = gui
 TextButton.Draggable = true
