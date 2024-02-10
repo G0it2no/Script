@@ -13,7 +13,7 @@ TextButton.Font = Enum.Font.Code --txt code
 TextButton.Size = UDim2.new(0.2, 0, 0.1, 0) --size
 TextButton.Position = UDim2.new(0, 0, 0.4, 0) --pos
 TextButton.MouseButton1Click:Connect(function() --function
-L:ToggleUI() --change L [exam: If Name Local Is Library Change To Library:ToggleUI()
+L:ToggleUI() --change L [ example: If Name Local Is Library Change To Library:ToggleUI() ]
 end)
 TextButton.Parent = gui
 TextButton.Draggable = true
