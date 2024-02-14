@@ -10,17 +10,17 @@ local Tab = Window:MakeTab({
 
 
 Tab:AddTextbox({
-	Name = "Reach sword",
+	Name = "Reach",
 	Default = "",
 	TextDisappear = true,
-	Callback = function(Value)
+	Callback = function(v)
 for i,v in pairs(game:GetService'Players'.LocalPlayer.Character:GetChildren()) do
 		if v:isA("Tool") then
 			local a = Instance.new("SelectionBox",v.Handle)
 			v.Handle.Massless = true
 			v.Handle.Transparency = 1
 			a.Adornee = v.Handle
-			v.Handle.Size = Vector3.new(Value, Value, Value)
+			v.Handle.Size = Vector3.new(v, v, v)
 			local selectionBox = Instance.new("SelectionBox",v.Handle)
 			selectionBox.Adornee = v.Handle
 			selectionBox.Color3 = Color3.new(0, 0.313725, 0.47451)
@@ -57,14 +57,14 @@ Tab:AddButton({
 })
 
 Tab:AddButton({
-	Name = "I see you everywhere",
+	Name = "Where you go i see",
 	Callback = function()
       		loadstring(game:HttpGet("https://pastebin.com/raw/daM0ut53"))()
   	end    
 })
 
 Tab:AddButton({
-	Name = "Endless zoom",
+	Name = "Zoom endless",
 	Callback = function()
       		plr.CameraMaxZoomDistance = 1e99
 plr.CameraMinZoomDistance = 0
@@ -72,7 +72,7 @@ plr.CameraMinZoomDistance = 0
 })
 
 Tab:AddButton({
-	Name = "Console button",
+	Name = "Console",
 	Callback = function()
       		local Console = Instance.new("ScreenGui")
 Console.Name = 'Console'
@@ -83,7 +83,7 @@ button.Size = UDim2.new(0, 32, 0, 32)
 button.Position = UDim2.new(0, 105, 0, -32)
 button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 button.BackgroundTransparency = 0.5
-button.Text = "< >"
+button.Text = "<_>"
 button.TextColor3 = Color3.fromRGB(200, 200, 200)
 button.Parent = Console
 button.Font = 'Code'
@@ -100,14 +100,14 @@ end)
 })
 
 Tab:AddButton({
-	Name = "Fling punch",
+	Name = "Fling",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/fedoratums/Base-Script/Base-Script/fedoratum punch fling",true))()
   	end    
 })
 
 Tab:AddButton({
-	Name = "Server breaker",
+	Name = "Break server",
 	Callback = function()
       		game:GetService("CoreGui").PurchasePrompt.Enabled = false
 _G.Lag = true
@@ -123,7 +123,7 @@ end
 })
 
 Tab:AddButton({
-	Name = "Touch all",
+	Name = "Touch Everyone",
 	Callback = function()
       		local plr = game.Players.LocalPlayer.Character.Head
 for i, v in pairs(game:GetService("Workspace"):GetDescendants()) do
