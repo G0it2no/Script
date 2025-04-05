@@ -1,0 +1,80 @@
+local success, KavoLib = pcall(function() return loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))() end)
+if not success then warn("Failed to load UI") return end
+
+local WindowKavo = KavoLib.CreateLib("TD", "DarkTheme")
+local TabKavo = WindowKavo:NewTab("Starter Towers")
+local SectionKavo = TabKavo:NewSection("Spawn Tower")
+
+local function st(towerName)
+    local p = game.Players.LocalPlayer
+    repeat task.wait() until p.Character -- Waiting Character Loading
+    local c = p.Character
+    local h = c:FindFirstChild("HumanoidRootPart")
+    local r = game:GetService("ReplicatedStorage")
+
+    if h and r.Functions and r.Functions.SpawnStudent then
+        local args = {[1] = towerName, [2] = h.CFrame, [4] = 0}
+        local success, err = pcall(function() r.Functions.SpawnStudent:InvokeServer(unpack(args)) end)
+        if not success then warn("Failed to spawn tower: " .. err) end
+    else
+        warn("HumanoidRootPart or SpawnStudent not found")
+    end
+end
+
+SectionKavo:NewDropdown("Units", "Select a tower", {"Serika", "Shiroko"}, function(TheTower)
+    st(TheTower)
+end)
+
+local Tab2 = WindowKavo:NewTab("WIP Towers")
+local Sec = Tab2:NewSection("Spawn Tower")
+
+Sec:NewDropdown("Units", "Select a tower", {"Hoshino", "Ayane"}, function(TheTower2)
+    st(TheTower2)
+end)
+
+local g = Instance.new("ScreenGui")
+g.Name = "Toggle"
+g.Parent = game.CoreGui
+
+local t = Instance.new("TextButton")
+t.Text = "Toggle UI"
+t.TextSize = 24
+t.TextColor3 = Color3.new(1, 1, 1) --color txt
+t.BackgroundColor3 = Color3.new(0, 0, 0) --color bg
+t.BorderColor3 = Color3.new(0, 0, 0) --color bd
+t.BorderSizePixel = 4 --thickness
+t.Font = Enum.Font.Code --txt code
+t.Size = UDim2.new(0.2, 0, 0.1, 0) --size
+t.Position = UDim2.new(0, 0, 0.4, 0) --pos
+t.MouseButton1Click:Connect(function() --function
+KavoLib:ToggleUI()
+end)
+t.Parent = g
+t.Draggable = true
+
+local c = Instance.new("UICorner")
+c.CornerRadius = UDim.new(0, 5)
+c.Parent = t
+
+local u = Instance.new("UIStroke")
+u.Color = Color3.new(0, 0, 0)
+u.Thickness = 2
+u.Parent = t
+
+local t2 = Instance.new("TextButton")
+t2.Parent = t
+t2.Text = "X"
+t2.Size = UDim2.new(0, 40, 0, 40)
+t2.TextSize = 30
+t2.Font = 'Code'
+t2.TextColor3 = Color3.new(255, 0, 0)
+t2.BackgroundColor3 = Color3.new(0, 0, 0)
+t2.AnchorPoint = Vector2.new(0, 0)
+t2.Position = UDim2.new(0, 5, 0, 5)
+t2.MouseButton1Click:Connect(function()
+g:Destroy()
+end)
+
+local bc = Instance.new("UICorner")
+bc.CornerRadius = UDim.new(0, 8)
+bc.Parent = t2
